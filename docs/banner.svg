@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340">
+  <defs>
+    <style>
+      @keyframes breathe { 0%,100% { r:14 } 50% { r:15.5 } }
+      @keyframes drift { 0%,100% { transform: translate(0,0); opacity: .65 } 50% { transform: translate(7px,7px); opacity: .3 } }
+      @keyframes wound { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+      .dot  { animation: breathe 4s ease-in-out infinite }
+      .w1   { animation: wound 2.4s ease-in-out infinite }
+      .p1   { animation: drift 3.2s ease-in-out infinite }
+      .p2   { animation: drift 3.2s ease-in-out .4s infinite }
+      .p3   { animation: drift 3.2s ease-in-out .8s infinite }
+      text  { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace }
+    </style>
+  </defs>
+
+  <rect width="1200" height="340" fill="#F5F2EB"/>
+  <rect x="16" y="16" width="1168" height="308" fill="none" stroke="#1C1D16" stroke-opacity=".14"/>
+
+  <text class="mono" x="40" y="46" font-size="12" letter-spacing="3" fill="#1C1D16" fill-opacity=".4">N°01 — DIGITAL ART OBJECT</text>
+  <text class="mono" x="1160" y="46" font-size="12" letter-spacing="3" fill="#D72638" text-anchor="end">LIVE DEMO → /demo</text>
+
+  <!-- the dot and its dissolving shadow -->
+  <g transform="translate(170,170)">
+    <circle class="dot" cx="0" cy="-18" r="14" fill="#1C1D16"/>
+    <circle class="w1" cx="30" cy="14" r="4" fill="#D72638"/>
+    <circle class="p1" cx="48" cy="30" r="3" fill="#1C1D16"/>
+    <circle class="p2" cx="64" cy="44" r="2.2" fill="#1C1D16"/>
+    <circle class="p3" cx="78" cy="56" r="1.5" fill="#1C1D16"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="320" y="188" font-size="96" font-weight="800" letter-spacing="-3">
+    <tspan fill="#3F0D12">SHADOW</tspan><tspan fill="#1C1D16">.me</tspan>
+  </text>
+
+  <text class="mono" x="324" y="244" font-size="17" letter-spacing="4" fill="#1C1D16" fill-opacity=".55">VISUALIZING THE INVISIBLE · CLEANING THE UNSEEN</text>
+
+  <text class="mono" x="40" y="312" font-size="12" letter-spacing="2" fill="#1C1D16" fill-opacity=".35">2 BREACH ARCHIVES · DETERMINISTIC SCORING · ANONYMIZED AI</text>
+  <text class="mono" x="1160" y="312" font-size="12" letter-spacing="2" fill="#1C1D16" fill-opacity=".35" text-anchor="end">HACKATHON 2026</text>
+</svg>

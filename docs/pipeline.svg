@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+  <defs>
+    <style>
+      text { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace }
+      .lbl { font-size: 12px; font-weight: 600; fill: #1C1D16 }
+      .sub { font-size: 10px; fill: #1C1D16; fill-opacity: .45 }
+      .edge { stroke: #1C1D16; stroke-opacity: .22; stroke-width: 1; fill: none }
+      .packet { fill: #D72638 }
+    </style>
+  </defs>
+
+  <rect width="900" height="260" fill="#F5F2EB"/>
+
+  <!-- edges -->
+  <path class="edge" d="M 110 130 L 270 70"/>
+  <path class="edge" d="M 110 130 L 270 130"/>
+  <path class="edge" d="M 110 130 L 270 190"/>
+  <path class="edge" d="M 330 70 L 490 130"/>
+  <path class="edge" d="M 330 130 L 490 130"/>
+  <path class="edge" d="M 330 190 L 490 130"/>
+  <path class="edge" d="M 550 130 L 710 130"/>
+  <path class="edge" d="M 770 130 L 850 70"/>
+  <path class="edge" d="M 770 130 L 850 190"/>
+
+  <!-- flying packets (SMIL) -->
+  <circle r="3" class="packet"><animateMotion dur="1.6s" repeatCount="indefinite" path="M 110 130 L 270 70"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.4s" begin="0.3s" repeatCount="indefinite" path="M 110 130 L 270 130"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.8s" begin="0.6s" repeatCount="indefinite" path="M 110 130 L 270 190"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.5s" begin="0.2s" repeatCount="indefinite" path="M 330 70 L 490 130"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.7s" begin="0.5s" repeatCount="indefinite" path="M 330 130 L 490 130"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.3s" begin="0.8s" repeatCount="indefinite" path="M 330 190 L 490 130"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.2s" begin="0.4s" repeatCount="indefinite" path="M 550 130 L 710 130"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.5s" begin="0.7s" repeatCount="indefinite" path="M 770 130 L 850 70"/></circle>
+  <circle r="3" class="packet"><animateMotion dur="1.6s" begin="0.1s" repeatCount="indefinite" path="M 770 130 L 850 190"/></circle>
+
+  <!-- nodes -->
+  <g>
+    <circle cx="90" cy="130" r="9" fill="#1C1D16"/>
+    <text class="lbl" x="90" y="106" text-anchor="middle">you</text>
+    <text class="sub" x="90" y="158" text-anchor="middle">email · hashed</text>
+
+    <circle cx="300" cy="70" r="8" fill="#3A4027"/>
+    <text class="lbl" x="300" y="46" text-anchor="middle">XposedOrNot</text>
+    <text class="sub" x="300" y="98" text-anchor="middle">breach intel</text>
+
+    <circle cx="300" cy="130" r="8" fill="#3A4027"/>
+    <text class="lbl" x="300" y="192" text-anchor="middle">LeakCheck</text>
+    <text class="sub" x="300" y="158" text-anchor="middle">cross-check</text>
+
+    <circle cx="300" cy="190" r="8" fill="#3A4027"/>
+    <text class="lbl" x="300" y="224" text-anchor="middle">Tavily</text>
+    <text class="sub" x="300" y="212" text-anchor="middle">web traces</text>
+
+    <circle cx="520" cy="130" r="8" fill="#A8835C"/>
+    <text class="lbl" x="520" y="106" text-anchor="middle">merge</text>
+    <text class="sub" x="520" y="158" text-anchor="middle">dedupe · provenance</text>
+
+    <circle cx="740" cy="130" r="9" fill="#D72638">
+      <animate attributeName="r" values="9;10.5;9" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text class="lbl" x="740" y="106" text-anchor="middle">scoring</text>
+    <text class="sub" x="740" y="158" text-anchor="middle">deterministic 0–100</text>
+
+    <circle cx="860" cy="70" r="8" fill="#3F0D12"/>
+    <text class="lbl" x="858" y="46" text-anchor="middle">gemma</text>
+    <text class="sub" x="858" y="98" text-anchor="middle">narrative</text>
+
+    <circle cx="860" cy="190" r="8" fill="#1C1D16"/>
+    <text class="lbl" x="858" y="224" text-anchor="middle">shadow</text>
+    <text class="sub" x="858" y="212" text-anchor="middle">16k particles</text>
+  </g>
+</svg>

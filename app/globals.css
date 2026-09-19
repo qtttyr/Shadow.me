@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-canvas: #f5f2eb; /* milk white */
+  --color-sand: #c29b72; /* beige */
+  --color-sand-deep: #a8835c;
+  --color-ink: #1c1d16; /* near-black warm */
+  --color-charcoal: #2b2d11;
+  --color-olive: #3a4027;
+  --color-olive-soft: #6b7350;
+  --color-ruby: #d72638;
+  --color-bordeaux: #3f0d12;
+  --color-bone: #efe9dd;
+
+  --font-display: var(--font-syne), sans-serif;
+  --font-mono: var(--font-jb-mono), monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-canvas);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ruby);
+  color: var(--color-canvas);
+}
+
+/* ── film grain ─────────────────────────────────────────────── */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -100%;
+  z-index: 90;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.055;
+  animation: grain-shift 0.9s steps(4) infinite;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 3%); }
+  50% { transform: translate(3%, -2%); }
+  75% { transform: translate(-3%, -3%); }
+  100% { transform: translate(2%, 2%); }
+}
+
+/* ── editorial headline ─────────────────────────────────────── */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── hairline rules ─────────────────────────────────────────── */
+.rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-ink) 22%, transparent);
+}
+
+/* ── marquee ────────────────────────────────────────────────── */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-x 38s linear infinite;
+  will-change: transform;
+}
+
+/* ── pulse for live dots ────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+.pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+/* ── демо-фильм: без зерна и затемнений ─────────────────────── */
+body:has(.demo-page).grain::after {
+  display: none;
+}
+
+/* ── blueprint print ────────────────────────────────────────── */
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .grain::after { display: none; }
 }

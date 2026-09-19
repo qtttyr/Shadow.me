@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="docs/banner.svg" alt="SHADOW.me" width="100%" />
+</div>
 
-## Getting Started
+---
 
-First, run the development server:
+**SHADOW.me** — your email is checked against two independent breach archives and the open web, scored by a deterministic explainable engine, and rendered as a **living particle organism** — your digital shadow — which you can collapse into a single point. Then clean it.
+
+<div align="center">
+  <img src="docs/pipeline.svg" alt="pipeline" width="90%" />
+</div>
+
+## why it's real
+
+- **two independent archives** (XposedOrNot + LeakCheck) — a leak confirmed by both gets a provenance bonus. one source alone can't fool the score
+- **deterministic scoring** — no AI guessing. every point has a reason shown in the UI: `passwords exposed +30`, `plaintext +25`, `recent breach +14`…
+- **AI never decides facts** — Gemma (Ollama Cloud) only narrates anonymized breach metadata
+- **verify it yourself**: scan `test@example.com` (burned in hundreds of real breaches), then check it on [xposedornot.com](https://xposedornot.com). same numbers.
+
+## run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local   # OLLAMA_API_KEY (free) · TAVILY_API_KEY (optional)
+npm install
+npm run dev                  # → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🎬 **demo film** — open [`/demo`](http://localhost:3000/demo) — a 3-minute auto-driven pitch with live scans, cinematic 3D orbit and kinetic typography. sound is added in post.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## privacy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- email is hashed for the in-memory cache (5 min) — **never stored, never logged**
+- the model receives **anonymized breach metadata only** — never your email
+- all scoring code is client-visible and explainable
 
-## Learn More
+## stack
 
-To learn more about Next.js, take a look at the following resources:
+`Next.js 16` · `React 19` · `three.js + R3F` (custom GLSL, 14k particles) · `GSAP + ScrollTrigger` · `Web Audio` (procedural sound, zero files) · `zustand` · `Ollama Cloud (gemma4)` · `Tavily`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+<sub>see your shadow. clean it. — hackathon 2026</sub>
+</div>
